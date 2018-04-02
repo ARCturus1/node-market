@@ -10,7 +10,7 @@ exports.ProductController = class ProductController {
 
         router
             .post(`/${this._route}`, koaBody(), this.postCallback)
-            .put(`/${this._route}/:id`, this.putCallback)
+            .put(`/${this._route}/:id`, koaBody(), this.putCallback)
             .get(`/${this._route}`, this.getAllCallback)
             .get(`/${this._route}/:id`, this.getByIdCallback)
             .delete(`/${this._route}/:id`, this.deleteCallback);
@@ -64,7 +64,10 @@ exports.ProductController = class ProductController {
     };
     async postCallback(context, next) {
         try {
-            const product = new Product(context.request.body.data.name, context.request.body.data.description, context.request.body.data.imageUrl, context.request.body.data.cost);
+            const product = new Product(context.request.body.data.name,
+                context.request.body.data.description,
+                context.request.body.data.imageUrl,
+                context.request.body.data.cost);
             const result = await db.get()
                 .collection(collectionName)
                 .insert(product);

@@ -1,4 +1,3 @@
-//const mongo = require('koa-mongo');
 const mongoClient = require('mongodb').MongoClient;
 const ObjectId = require('mongodb').ObjectId;
 
@@ -6,12 +5,11 @@ let state = {
     db: null
 };
 
-exports.connect = async function (url, name, options = {}) {
+exports.connect = async (url, options = {}) => {
     if (!state.db) {
         try {
-            const client = await mongoClient.connect(url);
+            const client = await mongoClient.connect(url, options);
             state.db = client.db();
-            // const a = await state.db.collection('users').find().toArray();
         } catch (error) {
             console.log(error);
             throw error;
