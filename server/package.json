@@ -1,31 +1,41 @@
 {
-  "name": "server",
-  "version": "0.0.1",
-  "description": "Server of market application",
-  "main": "server.js",
-  "scripts": {
-    "start": "nodemon server.js"
-  },
-  "author": "Roman.Savhcenko",
-  "license": "MIT",
-  "dependencies": {
-    "joi": "^13.1.2",
-    "jsonwebtoken": "^8.2.0",
-    "koa": "^2.5.0",
-    "koa-body": "^2.5.0",
-    "koa-bodyparser": "^4.2.0",
-    "koa-convert": "^1.2.0",
-    "koa-helmet": "^4.0.0",
-    "koa-mongo": "^1.3.0",
-    "koa-mongoose": "^2.0.0",
-    "koa-morgan": "^1.0.1",
-    "koa-router": "^7.4.0",
-    "mongodb": "^3.0.5",
-    "nodemon": "^1.17.2"
-  },
-  "devDependencies": {
-    "eslint": "^4.19.1",
-    "eslint-config-airbnb-base": "^12.1.0",
-    "eslint-plugin-import": "^2.10.0"
-  }
+    "name": "server",
+    "version": "0.0.1",
+    "description": "Server of market application",
+    "main": "server.js",
+    "scripts": {
+        "babel-node": "babel-node --presets=latest",
+        "start": "nodemon --exec npm run babel-node -- ./server.js",
+        "build": "babel src -d dist"
+    },
+    "author": "Roman.Savhcenko",
+    "license": "MIT",
+    "dependencies": {
+        "eslint-config-standart": "^0.2.0",
+        "joi": "^13.1.2",
+        "jsonwebtoken": "^8.2.0",
+        "koa": "^2.5.0",
+        "koa-body": "^2.5.0",
+        "koa-bodyparser": "^4.2.0",
+        "koa-convert": "^1.2.0",
+        "koa-helmet": "^4.0.0",
+        "koa-mongo": "^1.3.0",
+        "koa-mongoose": "^2.0.0",
+        "koa-morgan": "^1.0.1",
+        "koa-router": "^7.4.0",
+        "mongodb": "^3.0.5",
+        "nodemon": "^1.17.2"
+    },
+    "devDependencies": {
+        "babel-cli": "^6.26.0",
+        "babel-preset-latest": "^6.24.1",
+        "eslint": "^4.19.1",
+        "eslint-config-airbnb-base": "^12.1.0",
+        "eslint-plugin-import": "^2.10.0"
+    },
+    "babel": {
+        "presets": [
+            "latest"
+        ]
+    }
 }

@@ -1,7 +1,7 @@
 module.exports = {
-    // "extends": "standart",
-    // "root": true,
-    // "env": {
-    //     "browser": true
-    // }
+    "extends": "standart",
+    "root": true,
+    "env": {
+        "browser": true
+    }
 };
